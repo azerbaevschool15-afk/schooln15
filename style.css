@@ -64,7 +64,6 @@ textarea {
   outline-offset: 2px;
 }
 
-/* Фоновая сетка и плавающие формулы */
 .bg-grid {
   position: fixed;
   inset: 0;
@@ -119,7 +118,6 @@ textarea {
   z-index: 1;
 }
 
-/* Шапка */
 .site-header {
   position: sticky;
   top: 0;
@@ -245,7 +243,6 @@ textarea {
   border-bottom: 1px solid var(--surface-soft);
 }
 
-/* Кнопки */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -312,7 +309,6 @@ textarea {
   background: #e2ecff;
 }
 
-/* Герой */
 .hero {
   padding: 44px 0 36px;
 }
@@ -376,7 +372,6 @@ textarea {
   flex: 1 1 200px;
 }
 
-/* Карточки показателей */
 .stats-strip {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -405,7 +400,6 @@ textarea {
   color: var(--muted);
 }
 
-/* Секции */
 .section {
   padding: 56px 0;
 }
@@ -443,7 +437,6 @@ textarea {
   max-width: 60ch;
 }
 
-/* Вкладки профилей */
 .tabs-bar {
   display: flex;
   gap: 8px;
@@ -535,7 +528,6 @@ textarea {
   color: var(--ink);
 }
 
-/* Карточки кружков */
 .cards-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -601,7 +593,6 @@ textarea {
   text-decoration: underline;
 }
 
-/* Баннер с гербом-печатью */
 .school-seal-banner {
   margin-top: 20px;
   background: var(--surface);
@@ -654,7 +645,6 @@ textarea {
   font-size: 0.9rem;
 }
 
-/* Расписание звонков */
 .shift-switcher {
   display: flex;
   gap: 8px;
@@ -731,7 +721,6 @@ textarea {
   color: var(--ink);
 }
 
-/* Контакты */
 .contacts-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -825,7 +814,6 @@ textarea {
   font-size: 0.92rem;
 }
 
-/* Подвал */
 .site-footer {
   padding: 28px 0 36px;
   font-size: 0.88rem;
@@ -858,7 +846,6 @@ textarea {
   color: var(--blue);
 }
 
-/* Модальные окна */
 .modal-backdrop {
   position: fixed;
   inset: 0;
@@ -1011,7 +998,6 @@ textarea {
   flex-wrap: wrap;
 }
 
-/* Планшеты и ПК */
 @media (min-width: 640px) {
   .stats-strip {
     grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -1084,5 +1070,5 @@ textarea {
   .lessons-grid {
     grid-template-columns: repeat(6, minmax(0, 1fr));
   }
-    }
+  }
   
