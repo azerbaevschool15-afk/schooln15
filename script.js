@@ -1,342 +1,391 @@
 const SCHOOL_DATA = {
-  fullName: "Средняя общеобразовательная школа № 15 имени Кенена Азербаева",
-  director: "А. Джубанова",
+  fullName: "ГКУ «Средняя школа № 15 имени Кенена Азербаева»",
   address: "ул. Кенена Азербаева, 1, м-н Водник-1",
-  floors: "2 этажа",
-  hours: "08:00 – 18:00",
-  phone: "+7 727 523 3355",
-  email: "azerbaevschool15@gmail.com"
+  students: 2700,
+  floors: 2,
+  hours: "08:00–18:00",
+  email: "azerbaevschool15@gmail.com",
+  director: "А. Джубанова",
 };
 
-/** @type {Record<string, { title: string, text: string }>} */
+const SHIFTS = {
+  1: {
+    title: "1 смена — утренние занятия",
+    note: "Утренний учебный блок в рамках режима работы школы с 08:00 до 18:00",
+    lessons: [
+      { num: "1 урок", time: "08:00 – 08:45" },
+      { num: "2 урок", time: "08:55 – 09:40" },
+      { num: "3 урок", time: "09:50 – 10:35" },
+      { num: "4 урок", time: "10:50 – 11:35" },
+      { num: "5 урок", time: "11:45 – 12:30" },
+      { num: "6 урок", time: "12:40 – 13:25" },
+    ],
+  },
+  2: {
+    title: "2 смена — дневные занятия",
+    note: "Дневной учебный блок в рамках режима работы школы с 08:00 до 18:00",
+    lessons: [
+      { num: "1 урок", time: "13:30 – 14:15" },
+      { num: "2 урок", time: "14:25 – 15:10" },
+      { num: "3 урок", time: "15:20 – 16:05" },
+      { num: "4 урок", time: "16:15 – 17:00" },
+      { num: "5 урок", time: "17:05 – 17:50" },
+      { num: "6 урок", time: "17:55 – 18:40" },
+    ],
+  },
+  3: {
+    title: "3 смена — дополнительный поток",
+    note: "Дополнительные учебные занятия и консультации; точное время уточняется в школе",
+    lessons: [
+      { num: "1 урок", time: "14:00 – 14:40" },
+      { num: "2 урок", time: "14:50 – 15:30" },
+      { num: "3 урок", time: "15:40 – 16:20" },
+      { num: "4 урок", time: "16:30 – 17:10" },
+      { num: "5 урок", time: "17:20 – 18:00" },
+    ],
+  },
+};
+
 const INFO_TEXTS = {
-  admission: {
-    title: "Офлайн и онлайн приём",
-    text:
-      "1. Онлайн: заполните заявку на сайте — она отправится на почту " + SCHOOL_DATA.email + ".\n" +
-      "2. Офлайн: обратитесь по адресу " + SCHOOL_DATA.address + " (" + SCHOOL_DATA.floors + "), часы работы: " + SCHOOL_DATA.hours + ".\n\n" +
-      "Телефон: " + SCHOOL_DATA.phone + "\n" +
-      "Директор: " + SCHOOL_DATA.director
+  general: {
+    tag: "1–9 классы",
+    title: "Общеобразовательная ступень (1–9 классы)",
+    paragraphs: [
+      `В ${SCHOOL_DATA.fullName} обучение на уровне 1–9 классов охватывает начальную и основную школу и закладывает базу по ключевым предметам.`,
+    ],
+    bullets: [
+      "Систематическое изучение базовых предметов и развитие учебных навыков.",
+      "Подготовка к осознанному выбору профиля в 10 классе.",
+      "Возможность посещать школьные кружки и секции.",
+    ],
+  },
+  physics: {
+    tag: "Профиль 10–11 классов",
+    title: "Физико-математический профиль",
+    paragraphs: [
+      "Профиль ориентирован на старшеклассников, которым важны математика, физика, логика и поступление на технические и естественно-научные направления.",
+    ],
+    bullets: [
+      "Углублённое внимание математике и физике в 10–11 классах.",
+      "Развитие навыков решения задач и работы с формулами и моделями.",
+      "Подходит для будущих инженеров, программистов и аналитиков.",
+    ],
+  },
+  humanities: {
+    tag: "Профиль 10–11 классов",
+    title: "Гуманитарный профиль",
+    paragraphs: [
+      "Профиль направлен на углублённую работу с языками, литературой, историей и общественными дисциплинами в 10–11 классах.",
+    ],
+    bullets: [
+      "Развитие устной и письменной речи, анализа текстов и аргументации.",
+      "Работа с историческим контекстом и гуманитарными темами.",
+      "Подходит для гуманитарных, общественных и языковых специальностей.",
+    ],
+  },
+  subjectClubs: {
+    tag: "Кружки",
+    title: "Предметные кружки и физика",
+    paragraphs: [
+      "Занятия помогают глубже разобраться в сложных темах, разобрать нестандартные задачи и увереннее чувствовать себя на уроках.",
+    ],
+    bullets: [
+      "Разбор практических и олимпиадных задач по физике и математике.",
+      "Пояснение сложных тем простым и понятным языком.",
+      "Поддержка при подготовке к контрольным работам и экзаменам.",
+    ],
+  },
+  creativeClubs: {
+    tag: "Развитие",
+    title: "Творческие и научные кружки",
+    paragraphs: [
+      "Формат внеурочной работы, где ученики могут попробовать себя в проектах, выступлениях, творчестве и исследовательских заданиях.",
+    ],
+    bullets: [
+      "Подготовка проектных и творческих работ.",
+      "Развитие инициативности, командной работы и публичных выступлений.",
+      "Участие в школьных событиях и конкурсах.",
+    ],
+  },
+  sportsClubs: {
+    tag: "Спорт",
+    title: "Спортивные секции",
+    paragraphs: [
+      "Физическая активность помогает переключаться между учебными нагрузками и поддерживать хорошую форму.",
+    ],
+    bullets: [
+      "Общая физическая подготовка и подвижные/командные игры.",
+      "Занятия проходят в рамках рабочего времени школы (08:00–18:00).",
+      "Запись и расписание секций уточняются через заявку или в школе.",
+    ],
   },
   leadership: {
-    title: "Руководство и здание",
-    text:
-      SCHOOL_DATA.fullName + "\n" +
-      "Директор: " + SCHOOL_DATA.director + "\n" +
-      "Адрес: " + SCHOOL_DATA.address + "\n" +
-      "Здание: " + SCHOOL_DATA.floors + "\n" +
-      "Часы работы: " + SCHOOL_DATA.hours
+    tag: "О школе",
+    title: "Сведения о ГКУ «Средняя школа № 15 имени Кенена Азербаева»",
+    paragraphs: [
+      `${SCHOOL_DATA.fullName} работает по адресу: ${SCHOOL_DATA.address}.`,
+      `В школе обучается около ${SCHOOL_DATA.students} учащихся, учебное пространство включает ${SCHOOL_DATA.floors} этажа, режим работы — ${SCHOOL_DATA.hours}. Руководитель учреждения — директор ${SCHOOL_DATA.director}.`,
+    ],
+    bullets: [
+      "1–9 классы — общее образование; 10–11 классы — физико-математический и гуманитарный профили.",
+      "Организовано трёхсменное расписание и работа кружков.",
+      `Официальная почта для обращений: ${SCHOOL_DATA.email}`,
+    ],
   },
-  profileRule: {
-    title: "Выбор профиля с 10 класса",
-    text:
-      "С 1 по 9 класс ученики осваивают единую общеобразовательную программу.\n\n" +
-      "Выбор между физико-математическим и гуманитарным профилем открывается после 9 класса, с 10 класса."
-  },
-  contacts: {
-    title: "Контакты и реквизиты",
-    text:
-      SCHOOL_DATA.fullName + "\n" +
-      "Адрес: " + SCHOOL_DATA.address + "\n" +
-      "Здание: " + SCHOOL_DATA.floors + "\n" +
-      "Часы работы: " + SCHOOL_DATA.hours + "\n" +
-      "Телефон: " + SCHOOL_DATA.phone + "\n" +
-      "Директор: " + SCHOOL_DATA.director + "\n" +
-      "Почта: " + SCHOOL_DATA.email + "\n" +
-      "Учеников: 2 700"
-  },
-  after9: {
-    title: "Переход в 10 класс",
-    text: "После 9 класса ученики выбирают физико-математический или гуманитарный профиль для обучения в 10–11 классах."
-  },
-  fizmatInfo: {
-    title: "Физмат с 10 класса",
-    text: "Физико-математический профиль доступен с 10 класса после завершения основной школы (9 классов). Обучение бесплатное."
-  },
-  gumInfo: {
-    title: "Гуманитарный с 10 класса",
-    text: "Гуманитарный профиль открывается с 10 класса после завершения 9 классов. Обучение бесплатное."
-  },
-  clubSubjects: {
-    title: "Предметные кружки",
-    text: "В школе проходят кружки и дополнительные занятия по ключевым предметам, где ученики углубляют знания сверх базового урока."
-  },
-  clubCreative: {
-    title: "Внеурочные кружки",
-    text: "Кружковая работа помогает ученикам 1–11 классов раскрывать способности, готовить проекты и участвовать в школьных мероприятиях."
-  },
-  clubSport: {
-    title: "Спортивные секции",
-    text: "В школе работают спортивные секции для учеников разных классов. Записаться можно через заявку или в школе по адресу: " + SCHOOL_DATA.address + "."
-  }
 };
 
-const BG_FORMULAS = [
-  "E = mc²", "F = m·a", "I = U / R", "P = U·I",
-  "Ek = mv² / 2", "Ep = mgh", "p = m·v", "PV = νRT",
-  "λ = h / p", "F = G·(m₁m₂)/r²", "ΔU = Q - A", "ω = 2π / T",
-  "S = v₀t + at²/2", "c = 3·10⁸ м/с", "F = q(E + v×B)", "n = c / v",
-  "1/F = 1/d + 1/f", "Q = c·m·ΔT", "ℏ = h / 2π", "sin²α + cos²α = 1"
-];
+// Меню на мобильных устройствах
+const burgerBtn = document.getElementById("burgerBtn");
+const mobileNav = document.getElementById("mobileNav");
 
-/** @type {Record<number, Array<{ num: string, time: string, brk: string }>>} */
-const SHIFTS_DATA = {
-  1: [
-    { num: "1 урок", time: "08:00 – 08:40", brk: "Перемена: 5 мин" },
-    { num: "2 урок", time: "08:45 – 09:25", brk: "Перемена: 5 мин" },
-    { num: "3 урок", time: "09:30 – 10:10", brk: "Перемена: 10 мин" },
-    { num: "4 урок", time: "10:20 – 11:00", brk: "Перемена: 5 мин" },
-    { num: "5 урок", time: "11:05 – 11:45", brk: "Перемена: 5 мин" },
-    { num: "6 урок", time: "11:50 – 12:30", brk: "Перемена: 5 мин" },
-    { num: "7 урок", time: "12:35 – 13:15", brk: "Окончание смены" }
-  ],
-  2: [
-    { num: "1 урок", time: "14:00 – 14:40", brk: "Перемена: 5 мин" },
-    { num: "2 урок", time: "14:45 – 15:25", brk: "Перемена: 5 мин" },
-    { num: "3 урок", time: "15:30 – 16:10", brk: "Перемена: 10 мин" },
-    { num: "4 урок", time: "16:20 – 17:00", brk: "Перемена: 5 мин" },
-    { num: "5 урок", time: "17:05 – 17:45", brk: "Перемена: 5 мин" },
-    { num: "6 урок", time: "17:50 – 18:20", brk: "Перемена: 5 мин" },
-    { num: "7 урок", time: "18:25 – 18:55", brk: "Окончание смены" }
-  ],
-  3: [
-    { num: "1 урок", time: "11:00 – 11:40", brk: "Перемена: 5 мин" },
-    { num: "2 урок", time: "11:45 – 12:25", brk: "Перемена: 5 мин" },
-    { num: "3 урок", time: "12:30 – 13:10", brk: "Перемена: 5 мин" },
-    { num: "4 урок", time: "13:15 – 13:55", brk: "Окончание смены" }
-  ]
-};
+if (burgerBtn && mobileNav) {
+  burgerBtn.addEventListener("click", () => {
+    const isExpanded = burgerBtn.getAttribute("aria-expanded") === "true";
+    burgerBtn.setAttribute("aria-expanded", String(!isExpanded));
+    mobileNav.hidden = isExpanded;
+  });
 
-/**
- * @param {number} shiftNum
- */
-function renderShift(shiftNum) {
-  const container = document.getElementById("bellsContainer");
-  const list = SHIFTS_DATA[shiftNum] || SHIFTS_DATA[1];
-  if (container) {
-    container.innerHTML = list.map(function (item) {
-      return (
-        '<div class="bell-item">' +
-          '<div class="bell-row-top">' +
-            '<span class="bell-num">' + item.num + "</span>" +
-            '<span class="bell-time">' + item.time + "</span>" +
-          "</div>" +
-          '<span class="bell-break">' + item.brk + "</span>" +
-        "</div>"
-      );
-    }).join("");
-  }
-
-  document.querySelectorAll("[data-shift]").forEach(function (btn) {
-    const active = Number(btn.getAttribute("data-shift")) === Number(shiftNum);
-    btn.className = active ? "btn btn-blue btn-sm" : "btn btn-white btn-sm";
+  mobileNav.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      burgerBtn.setAttribute("aria-expanded", "false");
+      mobileNav.hidden = true;
+    });
   });
 }
 
-function toggleProfileField() {
-  const gradeEl = document.getElementById("studentGrade");
-  const profileGroup = document.getElementById("profileGroup");
-  const baseNoteGroup = document.getElementById("baseNoteGroup");
-  if (!(gradeEl instanceof HTMLSelectElement) || !profileGroup || !baseNoteGroup) return;
+// Вкладки профилей обучения
+const tabButtons = document.querySelectorAll(".tab-btn[data-tab]");
+const tabPanels = document.querySelectorAll(".tab-panel[role='tabpanel']");
 
-  const isHighSchool = gradeEl.value === "10 класс" || gradeEl.value === "11 класс";
-  profileGroup.style.display = isHighSchool ? "block" : "none";
-  baseNoteGroup.style.display = isHighSchool ? "none" : "block";
+tabButtons.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const targetId = `panel-${btn.dataset.tab}`;
+
+    tabButtons.forEach((b) => {
+      const active = b === btn;
+      b.classList.toggle("is-active", active);
+      b.setAttribute("aria-selected", String(active));
+    });
+
+    tabPanels.forEach((panel) => {
+      const isTarget = panel.id === targetId;
+      panel.classList.toggle("is-active", isTarget);
+      panel.hidden = !isTarget;
+    });
+  });
+});
+
+// Переключатель смен расписания звонков
+const shiftButtons = document.querySelectorAll(".shift-btn[data-shift]");
+const shiftTitle = document.getElementById("shiftTitle");
+const shiftNote = document.getElementById("shiftNote");
+const lessonsGrid = document.getElementById("lessonsGrid");
+
+function renderShift(shiftNumber) {
+  const shift = SHIFTS[shiftNumber] || SHIFTS[1];
+  if (shiftTitle) shiftTitle.textContent = shift.title;
+  if (shiftNote) shiftNote.textContent = shift.note;
+  if (!lessonsGrid) return;
+
+  lessonsGrid.innerHTML = shift.lessons
+    .map(
+      (lesson) => `
+      <div class="lesson-item">
+        <div class="lesson-num">${lesson.num}</div>
+        <div class="lesson-time">${lesson.time}</div>
+      </div>
+    `
+    )
+    .join("");
 }
 
-/**
- * @param {string} key
- */
-function openInfoByKey(key) {
-  const item = INFO_TEXTS[key];
-  if (!item) return;
-  const titleEl = document.getElementById("infoModalTitle");
-  const bodyEl = document.getElementById("infoModalBody");
-  const modalEl = document.getElementById("infoModal");
-  if (titleEl) titleEl.textContent = item.title;
-  if (bodyEl) bodyEl.textContent = item.text;
-  if (modalEl) modalEl.classList.add("open");
+shiftButtons.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    shiftButtons.forEach((b) => b.classList.toggle("is-active", b === btn));
+    renderShift(btn.dataset.shift);
+  });
+});
+
+renderShift(1);
+
+// Копирование электронной почты
+const copyEmailBtn = document.getElementById("copyEmailBtn");
+const copyStatus = document.getElementById("copyStatus");
+
+if (copyEmailBtn) {
+  copyEmailBtn.addEventListener("click", async () => {
+    const email = copyEmailBtn.dataset.email || SCHOOL_DATA.email;
+    try {
+      await navigator.clipboard.writeText(email);
+      if (copyStatus) copyStatus.textContent = `Скопировано: ${email}`;
+      copyEmailBtn.textContent = "Скопировано";
+      setTimeout(() => {
+        copyEmailBtn.textContent = "Копировать";
+      }, 2000);
+    } catch {
+      if (copyStatus) copyStatus.textContent = `Адрес почты: ${email}`;
+    }
+  });
 }
 
-/**
- * @param {string} defaultGrade
- * @param {string} defaultTrack
- */
-function openApplyModal(defaultGrade, defaultTrack) {
-  const gradeSelect = document.getElementById("studentGrade");
-  const trackSelect = document.getElementById("studentTrack");
-  const formEl = document.getElementById("applyForm");
-  const successEl = document.getElementById("applySuccess");
-  const modalEl = document.getElementById("applyModal");
+// Модальные окна
+const appModal = document.getElementById("applicationModal");
+const infoModal = document.getElementById("infoModal");
+const infoModalTag = document.getElementById("infoModalTag");
+const infoModalTitle = document.getElementById("infoModalTitle");
+const infoModalBody = document.getElementById("infoModalBody");
+const profileSelect = document.getElementById("applicantProfile");
+const formStatus = document.getElementById("formStatus");
 
-  if (gradeSelect instanceof HTMLSelectElement && defaultGrade) {
-    gradeSelect.value = defaultGrade;
+let lastFocusedElement = null;
+
+function syncBodyLock() {
+  const hasOpenModal =
+    (appModal && !appModal.hidden) || (infoModal && !infoModal.hidden);
+  document.body.classList.toggle("modal-open", Boolean(hasOpenModal));
+}
+
+function openModal(modalEl, triggerEl = null) {
+  if (!modalEl) return;
+  lastFocusedElement = triggerEl || document.activeElement;
+  modalEl.hidden = false;
+  syncBodyLock();
+
+  const focusable = modalEl.querySelector(
+    "input, select, textarea, button:not(.modal-close)"
+  );
+  if (focusable) {
+    setTimeout(() => focusable.focus(), 10);
   }
-  toggleProfileField();
+}
 
-  if (
-    trackSelect instanceof HTMLSelectElement &&
-    gradeSelect instanceof HTMLSelectElement &&
-    defaultTrack &&
-    (gradeSelect.value === "10 класс" || gradeSelect.value === "11 класс")
-  ) {
-    for (let i = 0; i < trackSelect.options.length; i += 1) {
-      if (trackSelect.options[i].value.indexOf(defaultTrack) !== -1) {
-        trackSelect.selectedIndex = i;
-        break;
+function closeModal(modalEl) {
+  if (!modalEl || modalEl.hidden) return;
+  modalEl.hidden = true;
+  syncBodyLock();
+  if (lastFocusedElement && typeof lastFocusedElement.focus === "function") {
+    lastFocusedElement.focus();
+  }
+}
+
+document.querySelectorAll("[data-open-modal='application']").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    if (infoModal && !infoModal.hidden) {
+      infoModal.hidden = true;
+    }
+    if (btn.dataset.defaultProfile && profileSelect) {
+      const exists = Array.from(profileSelect.options).some(
+        (opt) => opt.value === btn.dataset.defaultProfile
+      );
+      if (exists) {
+        profileSelect.value = btn.dataset.defaultProfile;
       }
     }
-  }
-
-  if (formEl) formEl.style.display = "block";
-  if (successEl) successEl.style.display = "none";
-  if (modalEl) modalEl.classList.add("open");
-}
-
-/**
- * @param {string} modalId
- */
-function closeModal(modalId) {
-  const modalEl = document.getElementById(modalId);
-  if (modalEl) modalEl.classList.remove("open");
-}
-
-if (typeof document !== "undefined") {
-  const bgLayer = document.getElementById("bgLayer");
-  if (bgLayer) {
-    BG_FORMULAS.forEach(function (formula, idx) {
-      const span = document.createElement("span");
-      span.className = "formula-float";
-      span.textContent = formula;
-      span.style.top = ((idx * 5.2) % 92) + "%";
-      span.style.left = (((idx * 29) + 5) % 86) + "%";
-      span.style.fontSize = (13 + (idx % 3) * 3) + "px";
-      span.style.animationDelay = -(idx * 1.15) + "s";
-      bgLayer.appendChild(span);
-    });
-  }
-
-  const metaEl = document.getElementById("schoolMetaText");
-  if (metaEl) {
-    metaEl.textContent =
-      "Адрес: " + SCHOOL_DATA.address + " (" + SCHOOL_DATA.floors + ")" +
-      "\nЧасы работы: " + SCHOOL_DATA.hours +
-      "\nТелефон: " + SCHOOL_DATA.phone +
-      "\nДиректор: " + SCHOOL_DATA.director +
-      "\nПочта для заявок: " + SCHOOL_DATA.email;
-  }
-
-  renderShift(1);
-  toggleProfileField();
-
-  document.addEventListener("click", function (e) {
-    const target = e.target;
-    if (!(target instanceof Element)) return;
-
-    const tabBtn = target.closest("[data-tab]");
-    if (tabBtn instanceof HTMLElement) {
-      const tabId = tabBtn.getAttribute("data-tab");
-      document.querySelectorAll(".tab-btn").forEach(function (b) { b.classList.remove("active"); });
-      tabBtn.classList.add("active");
-      document.querySelectorAll(".tab-panel").forEach(function (p) { p.classList.remove("active"); });
-      const panel = document.getElementById("tab-" + tabId);
-      if (panel) panel.classList.add("active");
-      return;
+    if (formStatus) {
+      formStatus.textContent = "";
+      formStatus.className = "form-status";
     }
+    openModal(appModal, btn);
+  });
+});
 
-    const shiftBtn = target.closest("[data-shift]");
-    if (shiftBtn instanceof HTMLElement) {
-      const shiftNum = Number(shiftBtn.getAttribute("data-shift"));
-      if (shiftNum) renderShift(shiftNum);
-      return;
+document.querySelectorAll("[data-info-key]").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const key = btn.dataset.infoKey;
+    const item = INFO_TEXTS[key];
+    if (!item || !infoModal) return;
+
+    if (infoModalTag) infoModalTag.textContent = item.tag;
+    if (infoModalTitle) infoModalTitle.textContent = item.title;
+    if (infoModalBody) {
+      const paragraphsHtml = item.paragraphs
+        .map((p) => `<p>${p}</p>`)
+        .join("");
+      const bulletsHtml = item.bullets
+        ? `<ul>${item.bullets.map((b) => `<li>${b}</li>`).join("")}</ul>`
+        : "";
+      infoModalBody.innerHTML = paragraphsHtml + bulletsHtml;
     }
+    openModal(infoModal, btn);
+  });
+});
 
-    const infoBtn = target.closest("[data-info-key]");
-    if (infoBtn instanceof HTMLElement) {
-      const key = infoBtn.getAttribute("data-info-key");
-      if (key) openInfoByKey(key);
-      return;
-    }
+document.querySelectorAll("[data-close-modal]").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const parentModal = btn.closest(".modal-backdrop");
+    closeModal(parentModal);
+  });
+});
 
-    const applyBtn = target.closest("[data-open-apply]");
-    if (applyBtn instanceof HTMLElement) {
-      const grade = applyBtn.getAttribute("data-grade") || "10 класс";
-      const track = applyBtn.getAttribute("data-track") || "Физико-математический";
-      openApplyModal(grade, track);
-      return;
-    }
-
-    const closeBtn = target.closest("[data-close-modal]");
-    if (closeBtn instanceof HTMLElement) {
-      const modalId = closeBtn.getAttribute("data-close-modal");
-      if (modalId) closeModal(modalId);
-      return;
-    }
-
-    if (target.id === "infoModal" || target.id === "applyModal") {
-      closeModal(target.id);
+[appModal, infoModal].forEach((modalEl) => {
+  if (!modalEl) return;
+  modalEl.addEventListener("click", (e) => {
+    if (e.target === modalEl) {
+      closeModal(modalEl);
     }
   });
+});
 
-  const gradeSelectEl = document.getElementById("studentGrade");
-  if (gradeSelectEl) {
-    gradeSelectEl.addEventListener("change", toggleProfileField);
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    if (appModal && !appModal.hidden) closeModal(appModal);
+    if (infoModal && !infoModal.hidden) closeModal(infoModal);
   }
+});
 
-  const doneApplyBtn = document.getElementById("doneApplyBtn");
-  if (doneApplyBtn) {
-    doneApplyBtn.addEventListener("click", function () {
-      const form = document.getElementById("applyForm");
-      if (form instanceof HTMLFormElement) form.reset();
-      toggleProfileField();
-      closeModal("applyModal");
-    });
-  }
+// Отправка формы заявки через FormSubmit
+const applicationForm = document.getElementById("applicationForm");
+const submitAppBtn = document.getElementById("submitAppBtn");
 
-  const applyFormEl = document.getElementById("applyForm");
-  if (applyFormEl instanceof HTMLFormElement) {
-    applyFormEl.addEventListener("submit", function (e) {
-      e.preventDefault();
-      const nameInput = document.getElementById("studentName");
-      const gradeSelect = document.getElementById("studentGrade");
-      const trackSelect = document.getElementById("studentTrack");
-      const phoneInput = document.getElementById("studentPhone");
-      const successBox = document.getElementById("applySuccess");
-      const detailsEl = document.getElementById("successDetails");
+if (applicationForm) {
+  applicationForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
 
-      const name = nameInput instanceof HTMLInputElement ? nameInput.value.trim() : "";
-      const grade = gradeSelect instanceof HTMLSelectElement ? gradeSelect.value : "10 класс";
-      const phone = phoneInput instanceof HTMLInputElement ? phoneInput.value.trim() : "";
-      const isSenior = grade === "10 класс" || grade === "11 класс";
-      const track = isSenior && trackSelect instanceof HTMLSelectElement
-        ? trackSelect.value
-        : "Общеобразовательная программа (профиль после 9 класса)";
+    if (!applicationForm.checkValidity()) {
+      applicationForm.reportValidity();
+      return;
+    }
 
-      const formData = new FormData(applyFormEl);
-      formData.set("Профиль", track);
+    if (submitAppBtn) {
+      submitAppBtn.disabled = true;
+      submitAppBtn.textContent = "Отправка...";
+    }
+    if (formStatus) {
+      formStatus.textContent = "";
+      formStatus.className = "form-status";
+    }
 
-      fetch("https://formsubmit.co/ajax/" + SCHOOL_DATA.email, {
+    try {
+      const formData = new FormData(applicationForm);
+      const response = await fetch(applicationForm.action, {
         method: "POST",
         body: formData,
-        headers: { Accept: "application/json" }
-      })
-        .then(function (res) { return res.json(); })
-        .then(function () {
-          applyFormEl.style.display = "none";
-          if (successBox) successBox.style.display = "block";
-          if (detailsEl) {
-            detailsEl.textContent =
-              "Заявка для " + name + " (" + grade + ", " + track + ", тел.: " + phone + ") отправлена на " + SCHOOL_DATA.email + ".";
-          }
-        })
-        .catch(function () {
-          applyFormEl.style.display = "none";
-          if (successBox) successBox.style.display = "block";
-          if (detailsEl) {
-            detailsEl.textContent =
-              "Данные заявки для " + name + " (" + grade + ", " + track + ") подготовлены для " + SCHOOL_DATA.email + ". При открытии с публичного сайта отправка проходит автоматически.";
-          }
-        });
-    });
-  }
+        headers: {
+          Accept: "application/json",
+        },
+      });
+
+      if (response.ok) {
+        if (formStatus) {
+          formStatus.textContent =
+            "Заявка отправлена! Мы получили ваши данные и свяжемся с вами.";
+          formStatus.className = "form-status is-success";
+        }
+        applicationForm.reset();
+      } else {
+        throw new Error("Ошибка отправки");
+      }
+    } catch {
+      if (formStatus) {
+        formStatus.textContent =
+          `Не удалось отправить автоматически. Напишите напрямую на ${SCHOOL_DATA.email}`;
+        formStatus.className = "form-status is-error";
+      }
+    } finally {
+      if (submitAppBtn) {
+        submitAppBtn.disabled = false;
+        submitAppBtn.textContent = "Отправить заявку";
+      }
+    }
+  });
 }
