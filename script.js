@@ -134,7 +134,6 @@ const INFO_TEXTS = {
   },
 };
 
-// Меню на мобильных устройствах
 const burgerBtn = document.getElementById("burgerBtn");
 const mobileNav = document.getElementById("mobileNav");
 
@@ -153,7 +152,6 @@ if (burgerBtn && mobileNav) {
   });
 }
 
-// Вкладки профилей обучения
 const tabButtons = document.querySelectorAll(".tab-btn[data-tab]");
 const tabPanels = document.querySelectorAll(".tab-panel[role='tabpanel']");
 
@@ -175,7 +173,6 @@ tabButtons.forEach((btn) => {
   });
 });
 
-// Переключатель смен расписания звонков
 const shiftButtons = document.querySelectorAll(".shift-btn[data-shift]");
 const shiftTitle = document.getElementById("shiftTitle");
 const shiftNote = document.getElementById("shiftNote");
@@ -208,7 +205,6 @@ shiftButtons.forEach((btn) => {
 
 renderShift(1);
 
-// Копирование электронной почты
 const copyEmailBtn = document.getElementById("copyEmailBtn");
 const copyStatus = document.getElementById("copyStatus");
 
@@ -228,7 +224,6 @@ if (copyEmailBtn) {
   });
 }
 
-// Модальные окна
 const appModal = document.getElementById("applicationModal");
 const infoModal = document.getElementById("infoModal");
 const infoModalTag = document.getElementById("infoModalTag");
@@ -333,7 +328,6 @@ document.addEventListener("keydown", (e) => {
   }
 });
 
-// Отправка формы заявки через FormSubmit
 const applicationForm = document.getElementById("applicationForm");
 const submitAppBtn = document.getElementById("submitAppBtn");
 
@@ -388,4 +382,5 @@ if (applicationForm) {
       }
     }
   });
-}
+  }
+    
