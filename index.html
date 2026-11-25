@@ -3,398 +3,542 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Средняя общеобразовательная школа № 15 имени Кенена Азербаева</title>
+  <title>ГКУ «Средняя школа № 15 имени Кенена Азербаева»</title>
+  <meta
+    name="description"
+    content="Официальная страница ГКУ «Средняя школа № 15 имени Кенена Азербаева» (м-н Водник-1, ул. Кенена Азербаева, 1): профильное обучение, трёхсменное расписание звонков, кружки и подача заявки."
+  />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-  <div class="bg-layer" id="bgLayer">
-    <div class="bg-grid"></div>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="floating-formulas" aria-hidden="true">
+    <span class="formula f1">E = mc²</span>
+    <span class="formula f2">F = m·a</span>
+    <span class="formula f3">Δx · Δp ≥ ħ/2</span>
+    <span class="formula f4">λ = h / p</span>
+    <span class="formula f5">a² + b² = c²</span>
+    <span class="formula f6">v = λ·ν</span>
   </div>
 
-  <header>
-    <div class="container nav-wrap">
-      <a href="#" class="brand">
-        <span class="brand-icon">№ 15</span>
-        <span class="brand-title">
-          СОШ № 15 им. К. Азербаева
-          <span class="brand-sub">Государственная школа • м-н Водник-1</span>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#top" class="brand" aria-label="ГКУ Средняя школа № 15 имени Кенена Азербаева">
+        <span class="brand-badge">№ 15</span>
+        <span class="brand-text">
+          <span class="brand-title">Школа № 15</span>
+          <span class="brand-subtitle">им. Кенена Азербаева</span>
         </span>
       </a>
 
-      <nav class="nav-menu">
+      <nav class="main-nav" aria-label="Основная навигация">
         <a href="#profiles">Профили</a>
-        <a href="#campus">Кружки и школа</a>
-        <a href="#bells">Расписание</a>
+        <a href="#clubs">Кружки и школа</a>
+        <a href="#schedule">Расписание</a>
         <a href="#contacts">Контакты</a>
       </nav>
 
-      <button type="button" class="btn btn-blue btn-sm" data-open-apply data-grade="10 класс" data-track="Физико-математический">
-        Подать заявку
-      </button>
+      <div class="header-actions">
+        <button type="button" class="btn btn-primary btn-sm" data-open-modal="application">
+          Подать заявку
+        </button>
+        <button
+          type="button"
+          class="burger-btn"
+          id="burgerBtn"
+          aria-label="Открыть меню"
+          aria-expanded="false"
+          aria-controls="mobileNav"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-nav" id="mobileNav" hidden>
+      <div class="container mobile-nav-inner">
+        <a href="#profiles" class="mobile-link">Профили обучения</a>
+        <a href="#clubs" class="mobile-link">Кружки и школа</a>
+        <a href="#schedule" class="mobile-link">Расписание звонков</a>
+        <a href="#contacts" class="mobile-link">Контакты</a>
+        <button type="button" class="btn btn-primary btn-full" data-open-modal="application">
+          Подать заявку
+        </button>
+      </div>
     </div>
   </header>
 
-  <main class="container">
+  <main id="top">
     <section class="hero">
-      <div class="hero-badge">
-        <span class="pulse-dot"></span>
-        Бесплатное государственное образование • 2 700 учеников
-      </div>
+      <div class="container hero-inner">
+        <div class="hero-kicker">
+          <span class="kicker-dot"></span>
+          <span>ГКУ · М-Н ВОДНИК-1</span>
+        </div>
 
-      <h1>
-        Средняя общеобразовательная школа № 15<br />
-        <span class="gradient-text">имени Кенена Азербаева</span>
-      </h1>
+        <h1 class="hero-title">
+          Средняя школа № 15<br />
+          <span>имени Кенена Азербаева</span>
+        </h1>
 
-      <p class="hero-desc">
-        Государственная двухэтажная школа в м-не Водник-1 на ул. Кенена Азербаева, 1. Единая базовая программа с 1 по 9 класс и профильное обучение (физмат и гуманитарный) с 10 класса.
-      </p>
+        <p class="hero-desc">
+          Государственное коммунальное учреждение образования с 1 по 11 класс: общее образование
+          в 1–9 классах, физико-математический и гуманитарный профили в 10–11 классах,
+          кружковая работа и трёхсменное расписание занятий.
+        </p>
 
-      <div class="hero-actions">
-        <button type="button" class="btn btn-blue" data-open-apply data-grade="10 класс" data-track="Физико-математический">
-          Подать заявку онлайн →
-        </button>
-        <button type="button" class="btn btn-white" data-info-key="admission">
-          Как подать заявку (офлайн / онлайн)
-        </button>
-      </div>
+        <div class="hero-cta">
+          <button type="button" class="btn btn-primary" data-open-modal="application">
+            Подать заявку на обучение
+          </button>
+          <a href="#schedule" class="btn btn-secondary">
+            Расписание звонков
+          </a>
+        </div>
 
-      <div class="quick-bar">
-        <button type="button" class="btn btn-white btn-sm" data-info-key="leadership">
-          Руководство и здание
-        </button>
-        <button type="button" class="btn btn-white btn-sm" data-info-key="profileRule">
-          Правило выбора профиля (10 класс)
-        </button>
-        <button type="button" class="btn btn-white btn-sm" data-info-key="contacts">
-          Контакты и почта
-        </button>
-      </div>
-    </section>
-
-    <section class="stats-row">
-      <div class="stat-box">
-        <div class="stat-val">2 700</div>
-        <div class="stat-lbl">Учеников обучаются</div>
-      </div>
-      <div class="stat-box">
-        <div class="stat-val">2 этажа</div>
-        <div class="stat-lbl">м-н Водник-1, ул. Азербаева, 1</div>
-      </div>
-      <div class="stat-box">
-        <div class="stat-val">10–11 кл</div>
-        <div class="stat-lbl">Физмат и Гуманитарный</div>
-      </div>
-      <div class="stat-box">
-        <div class="stat-val">08:00–18:00</div>
-        <div class="stat-lbl">Режим работы • Бесплатно</div>
+        <div class="stats-strip" role="region" aria-label="Ключевые показатели школы">
+          <div class="stat-card">
+            <div class="stat-value">2 700</div>
+            <div class="stat-label">учеников в школе</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">2 этажа</div>
+            <div class="stat-label">учебные корпуса</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">10–11 кл</div>
+            <div class="stat-label">физмат и гуманитарный</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">08:00–18:00</div>
+            <div class="stat-label">режим работы школы</div>
+          </div>
+        </div>
       </div>
     </section>
 
     <section id="profiles" class="section">
-      <div class="sec-head">
-        <span class="sec-tag">∑ Ступени и профили обучения</span>
-        <h2>Как устроено обучение</h2>
-        <p>Единая общеобразовательная программа в 1–9 классах и профильное обучение в 10–11 классах</p>
-      </div>
-
-      <div class="tabs-nav">
-        <button type="button" class="tab-btn active" data-tab="base">1–9 классы (Общая база)</button>
-        <button type="button" class="tab-btn" data-tab="fizmat">10–11 классы: Физмат</button>
-        <button type="button" class="tab-btn" data-tab="gum">10–11 классы: Гуманитарный</button>
-      </div>
-
-      <div id="tab-base" class="tab-panel active">
-        <div class="panel-info">
-          <span class="panel-formula">1–9 классы • Единый стандарт</span>
-          <h3>Общеобразовательная программа (1–9 классы)</h3>
+      <div class="container">
+        <div class="section-head">
+          <span class="section-tag">Образовательные траектории</span>
+          <h2>Профили и ступени обучения</h2>
           <p>
-            С 1 по 9 класс все ученики обучаются по единой государственной программе. Профильный выбор начинается после окончания 9 класса при переходе в 10 класс.
+            Последовательная программа от базовой школы до профильной подготовки в старших классах.
           </p>
-          <ul class="feature-list">
-            <li><span class="check-circle">✓</span> Базовая подготовка по всем основным предметам</li>
-            <li><span class="check-circle">✓</span> Школьные кружки, секции и внеклассные занятия</li>
-            <li><span class="check-circle">✓</span> Осознанный выбор профиля после 9 класса</li>
-          </ul>
-          <div class="panel-btns">
-            <button type="button" class="btn btn-blue" data-open-apply data-grade="5 класс" data-track="Общеобразовательный">
-              Подать заявку (1–9 класс)
-            </button>
-            <button type="button" class="btn btn-white" data-info-key="after9">
-              Выбор после 9 класса
-            </button>
-          </div>
         </div>
-        <div class="panel-card-side">
-          <h4>Этапы обучения</h4>
-          <div class="subject-row"><span>1–4 классы</span><span class="subject-hrs">Начальная</span></div>
-          <div class="subject-row"><span>5–9 классы</span><span class="subject-hrs">Основная</span></div>
-          <div class="subject-row"><span>После 9 класса</span><span class="subject-hrs">Выбор профиля</span></div>
-          <div class="subject-row"><span>10–11 классы</span><span class="subject-hrs">Физмат / Гум</span></div>
-        </div>
-      </div>
 
-      <div id="tab-fizmat" class="tab-panel">
-        <div class="panel-info">
-          <span class="panel-formula">F = m·a  |  E = mc²  |  ∫ f(x)dx</span>
-          <h3>Физико-математический профиль (с 10 класса)</h3>
-          <p>
-            Открывается с 10 класса для учеников, выбирающих углублённую математику, физику, информатику и технические направления.
-          </p>
-          <ul class="feature-list">
-            <li><span class="check-circle">✓</span> Углублённые курсы математики и физики</li>
-            <li><span class="check-circle">✓</span> Разбор сложных задач и подготовка к экзаменам</li>
-            <li><span class="check-circle">✓</span> Бесплатное государственное обучение</li>
-          </ul>
-          <div class="panel-btns">
-            <button type="button" class="btn btn-blue" data-open-apply data-grade="10 класс" data-track="Физико-математический">
-              Заявка в Физмат (10–11 кл)
-            </button>
-            <button type="button" class="btn btn-white" data-info-key="fizmatInfo">
-              Подробнее о профиле
-            </button>
-          </div>
+        <div class="tabs-bar" role="tablist" aria-label="Ступени обучения">
+          <button
+            type="button"
+            class="tab-btn is-active"
+            role="tab"
+            id="tab-general"
+            aria-selected="true"
+            aria-controls="panel-general"
+            data-tab="general"
+          >
+            1–9 классы · Общее
+          </button>
+          <button
+            type="button"
+            class="tab-btn"
+            role="tab"
+            id="tab-physics"
+            aria-selected="false"
+            aria-controls="panel-physics"
+            data-tab="physics"
+          >
+            10–11 классы · Физико-математический
+          </button>
+          <button
+            type="button"
+            class="tab-btn"
+            role="tab"
+            id="tab-humanities"
+            aria-selected="false"
+            aria-controls="panel-humanities"
+            data-tab="humanities"
+          >
+            10–11 классы · Гуманитарный
+          </button>
         </div>
-        <div class="panel-card-side">
-          <h4>Профиль 10–11 классов</h4>
-          <div class="subject-row"><span>Алгебра и начала анализа</span><span class="subject-hrs">Профиль</span></div>
-          <div class="subject-row"><span>Геометрия</span><span class="subject-hrs">Профиль</span></div>
-          <div class="subject-row"><span>Физика</span><span class="subject-hrs">Профиль</span></div>
-          <div class="subject-row"><span>Информатика</span><span class="subject-hrs">Углублённо</span></div>
-        </div>
-      </div>
 
-      <div id="tab-gum" class="tab-panel">
-        <div class="panel-info">
-          <span class="panel-formula">История • Литература • Языки</span>
-          <h3>Гуманитарный профиль (с 10 класса)</h3>
-          <p>
-            Открывается с 10 класса для тех, кому ближе история, литература, обществознание, право и изучение языков.
-          </p>
-          <ul class="feature-list">
-            <li><span class="check-circle">✓</span> Углублённая история, литература и языковая подготовка</li>
-            <li><span class="check-circle">✓</span> Развитие аналитического чтения и устной речи</li>
-            <li><span class="check-circle">✓</span> Бесплатное государственное обучение</li>
-          </ul>
-          <div class="panel-btns">
-            <button type="button" class="btn btn-blue" data-open-apply data-grade="10 класс" data-track="Гуманитарный">
-              Заявка в Гум-класс (10–11 кл)
-            </button>
-            <button type="button" class="btn btn-white" data-info-key="gumInfo">
-              Подробнее о профиле
-            </button>
+        <div class="tab-panels">
+          <div
+            class="tab-panel is-active"
+            role="tabpanel"
+            id="panel-general"
+            aria-labelledby="tab-general"
+          >
+            <div class="panel-grid">
+              <div class="panel-main">
+                <span class="panel-badge">Базовый уровень · 1–9 классы</span>
+                <h3>Общеобразовательная программа</h3>
+                <p>
+                  Формирование прочной базовой грамотности по чтению, письму, математике,
+                  естественным наукам, языкам и основам проектной работы для осознанного выбора
+                  профиля в 10 классе.
+                </p>
+                <div class="panel-actions">
+                  <button
+                    type="button"
+                    class="btn btn-primary btn-sm"
+                    data-open-modal="application"
+                    data-default-profile="1–9 классы (Общее образование)"
+                  >
+                    Подать заявку
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-ghost btn-sm"
+                    data-info-key="general"
+                  >
+                    Подробнее о ступени
+                  </button>
+                </div>
+              </div>
+              <ul class="panel-list">
+                <li><strong>1–4 классы:</strong> начальная школа, навыки счёта, чтения и самостоятельности</li>
+                <li><strong>5–9 классы:</strong> основная школа, расширение курсов математики, физики, химии и языков</li>
+                <li><strong>Подготовка к выбору профиля:</strong> диагностика интересов перед 10 классом</li>
+              </ul>
+            </div>
           </div>
-        </div>
-        <div class="panel-card-side">
-          <h4>Профиль 10–11 классов</h4>
-          <div class="subject-row"><span>История и обществознание</span><span class="subject-hrs">Профиль</span></div>
-          <div class="subject-row"><span>Литература</span><span class="subject-hrs">Профиль</span></div>
-          <div class="subject-row"><span>Языки</span><span class="subject-hrs">Углублённо</span></div>
-          <div class="subject-row"><span>Основы права</span><span class="subject-hrs">Старшая школа</span></div>
+
+          <div
+            class="tab-panel"
+            role="tabpanel"
+            id="panel-physics"
+            aria-labelledby="tab-physics"
+            hidden
+          >
+            <div class="panel-grid">
+              <div class="panel-main">
+                <span class="panel-badge">Профиль 10–11 классов</span>
+                <h3>Физико-математический профиль</h3>
+                <p>
+                  Углублённое изучение алгебры, начал анализа, геометрии и физики с акцентом на
+                  решение задач повышенной сложности, логическое мышление и подготовку к
+                  техническим вузам.
+                </p>
+                <div class="panel-actions">
+                  <button
+                    type="button"
+                    class="btn btn-primary btn-sm"
+                    data-open-modal="application"
+                    data-default-profile="10–11 классы (Физико-математический профиль)"
+                  >
+                    Выбрать физмат-профиль
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-ghost btn-sm"
+                    data-info-key="physics"
+                  >
+                    Требования и формат
+                  </button>
+                </div>
+              </div>
+              <ul class="panel-list">
+                <li><strong>Математика:</strong> углублённая работа с функциями, уравнениями, тригонометрией и геометрией</li>
+                <li><strong>Физика:</strong> механика, молекулярная физика, электродинамика, оптика и элементы квантовой физики</li>
+                <li><strong>Направление:</strong> инженерные, IT, технические и естественно-научные специальности</li>
+              </ul>
+            </div>
+          </div>
+
+          <div
+            class="tab-panel"
+            role="tabpanel"
+            id="panel-humanities"
+            aria-labelledby="tab-humanities"
+            hidden
+          >
+            <div class="panel-grid">
+              <div class="panel-main">
+                <span class="panel-badge">Профиль 10–11 классов</span>
+                <h3>Гуманитарный профиль</h3>
+                <p>
+                  Углублённое освоение языков, литературы, истории и обществоведческих дисциплин,
+                  развитие аргументированной речи, анализа текстов и работы с источниками.
+                </p>
+                <div class="panel-actions">
+                  <button
+                    type="button"
+                    class="btn btn-primary btn-sm"
+                    data-open-modal="application"
+                    data-default-profile="10–11 классы (Гуманитарный профиль)"
+                  >
+                    Выбрать гуманитарный профиль
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-ghost btn-sm"
+                    data-info-key="humanities"
+                  >
+                    Требования и формат
+                  </button>
+                </div>
+              </div>
+              <ul class="panel-list">
+                <li><strong>Языки и литература:</strong> разбор художественных текстов, стилистика и письменная речь</li>
+                <li><strong>История и общество:</strong> работа с фактами, хронологией, контекстом и дискуссиями</li>
+                <li><strong>Направление:</strong> гуманитарные, общественные, правовые и языковые направления</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="campus" class="section">
-      <div class="sec-head">
-        <span class="sec-tag">Δ Кружки и школьная жизнь</span>
-        <h2>Кружки и возможности школы</h2>
-        <p>Нажмите на кнопку в карточке, чтобы открыть подробную информацию</p>
-      </div>
+    <section id="clubs" class="section section-alt">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-tag">Внеурочная жизнь</span>
+          <h2>Кружки и школьная среда</h2>
+          <p>
+            Дополнительные занятия и секции помогают закреплять материал и развивать личные интересы.
+          </p>
+        </div>
 
-      <div class="cards-grid">
-        <div class="info-card">
-          <div>
-            <div class="card-symbol">Ω</div>
+        <div class="cards-grid">
+          <article class="info-card">
+            <div class="card-top">
+              <span class="card-tag">Кружки</span>
+              <span class="card-num">01</span>
+            </div>
             <h3>Предметные кружки и физика</h3>
-            <p>Дополнительные занятия, разбор задач, опыты и знакомство с физическими законами и формулами.</p>
-          </div>
-          <button type="button" class="btn btn-white btn-sm" data-info-key="clubSubjects">
-            Подробнее о кружках →
-          </button>
-        </div>
+            <p>
+              Разбор олимпиадных и сложных задач по математике и физике, наглядные объяснения
+              законов природы и подготовка к контрольным и экзаменам.
+            </p>
+            <button type="button" class="text-link" data-info-key="subjectClubs">
+              Как проходят занятия →
+            </button>
+          </article>
 
-        <div class="info-card">
-          <div>
-            <div class="card-symbol">Σ</div>
+          <article class="info-card">
+            <div class="card-top">
+              <span class="card-tag">Развитие</span>
+              <span class="card-num">02</span>
+            </div>
             <h3>Творческие и научные кружки</h3>
-            <p>Развитие интересов учеников во внеурочное время: проекты, выступления, чтение и творчество.</p>
-          </div>
-          <button type="button" class="btn btn-white btn-sm" data-info-key="clubCreative">
-            Подробнее о занятиях →
-          </button>
-        </div>
+            <p>
+              Проектная и исследовательская деятельность, подготовка выступлений, чтение,
+              творческие мастерские и участие в школьных мероприятиях.
+            </p>
+            <button type="button" class="text-link" data-info-key="creativeClubs">
+              Направления кружков →
+            </button>
+          </article>
 
-        <div class="info-card">
-          <div>
-            <div class="card-symbol">⚡</div>
+          <article class="info-card">
+            <div class="card-top">
+              <span class="card-tag">Спорт</span>
+              <span class="card-num">03</span>
+            </div>
             <h3>Спортивные секции</h3>
-            <p>Активные тренировки и командные игры после уроков для поддержания формы и здоровья учеников.</p>
+            <p>
+              Общая физическая подготовка, командные игры и активный досуг после уроков в рамках
+              рабочего дня школы с 08:00 до 18:00.
+            </p>
+            <button type="button" class="text-link" data-info-key="sportsClubs">
+              Режим и запись →
+            </button>
+          </article>
+        </div>
+
+        <div class="school-seal-banner">
+          <div class="seal-mark" aria-hidden="true">
+            <div class="seal-ring">
+              <span>№ 15</span>
+              <small>ГКУ</small>
+            </div>
           </div>
-          <button type="button" class="btn btn-white btn-sm" data-info-key="clubSport">
-            Подробнее о секциях →
-          </button>
+          <div class="seal-content">
+            <h3>ГКУ «Средняя школа № 15 имени Кенена Азербаева»</h3>
+            <p>
+              Адрес: ул. Кенена Азербаева, 1, м-н Водник-1 · 2 700 учащихся · 2 этажа ·
+              Ежедневный режим работы: 08:00–18:00 · Директор: А. Джубанова.
+            </p>
+          </div>
+          <div class="seal-actions">
+            <button type="button" class="btn btn-outline btn-sm" data-info-key="leadership">
+              О руководстве и школе
+            </button>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="bells" class="section">
-      <div class="schedule-box">
-        <div class="schedule-top">
+    <section id="schedule" class="section">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-tag">Учебный график</span>
+          <h2>Расписание звонков (3 смены)</h2>
+          <p>
+            Переключайте смену, чтобы посмотреть время начала и окончания уроков. При необходимости
+            расписание уточняется классным руководителем или завучем.
+          </p>
+        </div>
+
+        <div class="shift-switcher" role="group" aria-label="Выбор смены">
+          <button type="button" class="shift-btn is-active" data-shift="1">1 смена</button>
+          <button type="button" class="shift-btn" data-shift="2">2 смена</button>
+          <button type="button" class="shift-btn" data-shift="3">3 смена</button>
+        </div>
+
+        <div class="schedule-box">
+          <div class="schedule-meta">
+            <strong id="shiftTitle">1 смена — утренние занятия</strong>
+            <span id="shiftNote">Точное время по классам уточняется в расписании учебной части</span>
+          </div>
+          <div class="lessons-grid" id="lessonsGrid"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacts" class="section section-alt">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-tag">Связь со школой</span>
+          <h2>Контакты и адрес</h2>
+          <p>
+            Для вопросов по приёму, переводу, выбору профиля и кружкам используйте электронную почту
+            или онлайн-форму заявки.
+          </p>
+        </div>
+
+        <div class="contacts-grid">
+          <div class="contact-card">
+            <span class="contact-label">Адрес</span>
+            <strong class="contact-value">ул. Кенена Азербаева, 1, м-н Водник-1</strong>
+            <p class="contact-note">Учебное здание школы · 2 этажа · 2 700 учащихся</p>
+          </div>
+
+          <div class="contact-card">
+            <span class="contact-label">Режим работы и руководство</span>
+            <strong class="contact-value">08:00 – 18:00</strong>
+            <p class="contact-note">Директор: А. Джубанова · Трёхсменный учебный график</p>
+          </div>
+
+          <div class="contact-card">
+            <span class="contact-label">Электронная почта</span>
+            <div class="email-row">
+              <a href="mailto:azerbaevschool15@gmail.com" class="contact-email">
+                azerbaevschool15@gmail.com
+              </a>
+              <button
+                type="button"
+                class="copy-btn"
+                id="copyEmailBtn"
+                data-email="azerbaevschool15@gmail.com"
+              >
+                Копировать
+              </button>
+            </div>
+            <p class="contact-note" id="copyStatus">Заявки из формы отправляются на этот адрес</p>
+          </div>
+        </div>
+
+        <div class="cta-banner">
           <div>
-            <span class="sec-tag sec-tag-left">Режим занятий и перемен</span>
-            <h3>Расписание звонков</h3>
+            <h3>Нужно подать заявку или уточнить поступление в ГКУ «Среднюю школу № 15»?</h3>
+            <p>Заполните короткую форму — данные отправятся на электронную почту школы.</p>
           </div>
-          <div class="shift-buttons">
-            <button type="button" class="btn btn-blue btn-sm" data-shift="1">1 смена</button>
-            <button type="button" class="btn btn-white btn-sm" data-shift="2">2 смена</button>
-            <button type="button" class="btn btn-white btn-sm" data-shift="3">3 смена</button>
-          </div>
-        </div>
-        <div class="bells-grid" id="bellsContainer"></div>
-      </div>
-    </section>
-
-    <section id="contacts" class="cta-banner">
-      <div class="cta-text">
-        <span class="sec-tag sec-tag-left">Официальная информация</span>
-        <h3>Средняя общеобразовательная школа № 15 имени Кенена Азербаева</h3>
-        <p id="schoolMetaText"></p>
-        <div class="cta-btns">
-          <button type="button" class="btn btn-blue" data-open-apply data-grade="10 класс" data-track="Физико-математический">
-            Отправить заявку
-          </button>
-          <button type="button" class="btn btn-white" data-info-key="contacts">
-            Контакты и реквизиты
+          <button type="button" class="btn btn-primary" data-open-modal="application">
+            Открыть форму заявки
           </button>
         </div>
-      </div>
-
-      <div class="seal-wrap" aria-label="Герб-печать школы">
-        <svg class="seal-svg" viewBox="0 0 160 160" role="img">
-          <defs>
-            <path id="sealTopArc" d="M 22,80 A 58,58 0 1,1 138,80" />
-            <path id="sealBottomArc" d="M 136,86 A 56,56 0 0,1 24,86" />
-          </defs>
-
-          <circle cx="80" cy="80" r="74" fill="#eff6ff" stroke="#1d4ed8" stroke-width="2.2" />
-          <circle cx="80" cy="80" r="68" fill="none" stroke="#2563eb" stroke-width="1" stroke-dasharray="3 2.5" opacity="0.65" />
-          <circle cx="80" cy="80" r="46" fill="#ffffff" stroke="#1d4ed8" stroke-width="1.6" />
-
-          <text fill="#1e3a8a" font-size="8.2" font-weight="700" letter-spacing="1.4">
-            <textPath href="#sealTopArc" startOffset="50%" text-anchor="middle">
-              ШКОЛА № 15 • К. АЗЕРБАЕВ
-            </textPath>
-          </text>
-          <text fill="#2563eb" font-size="7.6" font-weight="600" letter-spacing="1.5">
-            <textPath href="#sealBottomArc" startOffset="50%" text-anchor="middle">
-              ҚАЗАҚСТАН РЕСПУБЛИКАСЫ
-            </textPath>
-          </text>
-
-          <circle cx="80" cy="78" r="27" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5" />
-          <path d="M 59,84 Q 80,54 101,84" fill="none" stroke="#1d4ed8" stroke-width="2.8" stroke-linecap="round" />
-          <line x1="80" y1="64" x2="80" y2="95" stroke="#1d4ed8" stroke-width="2" />
-          <line x1="67" y1="74" x2="93" y2="74" stroke="#1d4ed8" stroke-width="1.7" />
-          <line x1="64" y1="81" x2="96" y2="81" stroke="#1d4ed8" stroke-width="1.5" />
-          <circle cx="80" cy="57" r="4.2" fill="#2563eb" />
-          <path d="M 52,77 Q 62,67 71,74" fill="none" stroke="#0284c7" stroke-width="1.8" stroke-linecap="round" />
-          <path d="M 108,77 Q 98,67 89,74" fill="none" stroke="#0284c7" stroke-width="1.8" stroke-linecap="round" />
-          <text x="80" y="102" text-anchor="middle" fill="#1e3a8a" font-size="7" font-weight="700" letter-spacing="1">
-            № 15
-          </text>
-        </svg>
-        <span class="seal-caption">Официальный знак • № 15</span>
       </div>
     </section>
   </main>
 
-  <footer>
-    Средняя общеобразовательная школа № 15 имени Кенена Азербаева • ул. Кенена Азербаева, 1, м-н Водник-1 • +7 727 523 3355
-  </footer>
-
-  <div class="modal-overlay" id="infoModal">
-    <div class="modal-window">
-      <button type="button" class="modal-close" data-close-modal="infoModal">×</button>
-      <span class="modal-badge">СОШ № 15 • Информация</span>
-      <h3 id="infoModalTitle">Заголовок</h3>
-      <div class="modal-body-text" id="infoModalBody">Текст</div>
-      <button type="button" class="btn btn-blue btn-full" data-close-modal="infoModal">Закрыть</button>
-    </div>
-  </div>
-
-  <div class="modal-overlay" id="applyModal">
-    <div class="modal-window">
-      <button type="button" class="modal-close" data-close-modal="applyModal">×</button>
-      <span class="modal-badge">Онлайн и офлайн заявка</span>
-      <h3>Заявка на обучение в школу № 15</h3>
-      <p class="modal-hint">
-        Онлайн-заявка отправится на <strong>azerbaevschool15@gmail.com</strong>. Офлайн-приём: <strong>ул. Кенена Азербаева, 1, м-н Водник-1</strong> (08:00 – 18:00), тел.: <strong>+7 727 523 3355</strong>.
-      </p>
-
-      <form id="applyForm" action="https://formsubmit.co/azerbaevschool15@gmail.com" method="POST">
-        <input type="hidden" name="_subject" value="Новая заявка — СОШ № 15 имени Кенена Азербаева" />
-        <input type="hidden" name="_captcha" value="false" />
-
-        <div class="form-group">
-          <label for="studentName">ФИО ученика</label>
-          <input type="text" class="form-control" id="studentName" name="ФИО ученика" placeholder="Введите ФИО" required />
-        </div>
-
-        <div class="form-group">
-          <label for="studentGrade">Класс</label>
-          <select class="form-control" id="studentGrade" name="Класс">
-            <option value="1 класс">1 класс</option>
-            <option value="2 класс">2 класс</option>
-            <option value="3 класс">3 класс</option>
-            <option value="4 класс">4 класс</option>
-            <option value="5 класс">5 класс</option>
-            <option value="6 класс">6 класс</option>
-            <option value="7 класс">7 класс</option>
-            <option value="8 класс">8 класс</option>
-            <option value="9 класс">9 класс</option>
-            <option value="10 класс" selected>10 класс</option>
-            <option value="11 класс">11 класс</option>
-          </select>
-        </div>
-
-        <div class="form-group" id="profileGroup">
-          <label for="studentTrack">Профиль (доступен с 10 класса)</label>
-          <select class="form-control" id="studentTrack" name="Профиль">
-            <option value="Физико-математический">Физико-математический</option>
-            <option value="Гуманитарный">Гуманитарный</option>
-          </select>
-        </div>
-
-        <div class="form-group" id="baseNoteGroup">
-          <div class="base-info-box">
-            Для 1–9 классов действует единая общеобразовательная программа (выбор профиля — после 9 класса, с 10 класса).
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label for="studentPhone">Телефон для связи</label>
-          <input type="tel" class="form-control" id="studentPhone" name="Телефон" placeholder="+7 (___) ___-__-__" required />
-        </div>
-
-        <button type="submit" class="btn btn-blue btn-full form-submit-btn">
-          Отправить заявку на почту →
-        </button>
-      </form>
-
-      <div id="applySuccess" class="apply-success">
-        <div class="success-icon">✓</div>
-        <h4>Заявка отправлена</h4>
-        <p id="successDetails"></p>
-        <button type="button" class="btn btn-white btn-full" id="doneApplyBtn">Готово</button>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>ГКУ «Средняя школа № 15 имени Кенена Азербаева»</strong>
+        <p>ул. Кенена Азербаева, 1, м-н Водник-1 · azerbaevschool15@gmail.com</p>
+      </div>
+      <div class="footer-links">
+        <a href="#profiles">Профили</a>
+        <a href="#clubs">Кружки</a>
+        <a href="#schedule">Расписание</a>
+        <a href="#contacts">Контакты</a>
       </div>
     </div>
-  </div>
+  </footer>
 
-  <script src="script.js"></script>
-</body>
-</html>
+  <!-- Модальное окно подачи заявки -->
+  <div class="modal-backdrop" id="applicationModal" hidden>
+    <div
+      class="modal-dialog"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="appModalTitle"
+    >
+      <div class="modal-header">
+        <div>
+          <span class="modal-tag">Онлайн-обращение</span>
+          <h3 id="appModalTitle">Подача заявки в школу № 15</h3>
+        </div>
+        <button type="button" class="modal-close" data-close-modal aria-label="Закрыть окно">
+          ✕
+        </button>
+      </div>
+
+      <form
+        id="applicationForm"
+        class="modal-form"
+        action="https://formsubmit.co/azerbaevschool15@gmail.com"
+        method="POST"
+      >
+        <input
+          type="hidden"
+          name="_subject"
+          value="Новая заявка — ГКУ «Средняя школа № 15 им. Кенена Азербаева»"
+        />
+        <input type="hidden" name="_template" value="table" />
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="text" name="_honey" class="honeypot" tabindex="-1" autocomplete="off" />
+
+        <div class="form-row">
+          <label for="applicantName">ФИО ученика или родителя *</label>
+          <input
+            type="text"
+            id="applicantName"
+            name="Имя и фамилия"
+            required
+            placeholder="Например: Нурлан Садыков"
+          />
+        </div>
+
+        <div class="form-two-col">
+          <div class="form-row">
+            <label for="applicantPhone">Телефон для связи *</label>
+            <input
+              type="tel"
+              id="applicantPhone"
+              name="Телефон"
+              required
+              placeholder="+7 (7XX) XXX-XX-XX"
+            />
+          </div>
+
+          <div class="form-row">
+            <label for="applicantEmail">Ваш e-mail</label>
+            <input
+              type="email"
+              id="applicantEmail"
+              name="Email заявителя"
+              placeholder="name@example.com"
+            />
+          </div
